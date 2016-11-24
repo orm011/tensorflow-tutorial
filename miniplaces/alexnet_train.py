@@ -1,7 +1,7 @@
 import os, datetime
 import numpy as np
 import tensorflow as tf
-from .DataLoader import *
+from DataLoader import *
 
 # Dataset Parameters
 batch_size = 200
@@ -182,7 +182,8 @@ with tf.Session() as sess:
 
     # Evaluate on the whole validation set
     print('Evaludation on the whole validation set...')
-    num_batch = loader_val.size()/batch_size
+    # (orm) added + batch_size - 1 to make this work with small validation sets (and give 1)
+    num_batch = (loader_val.size() + batch_size - 1) // batch_size
     acc1_total = 0.
     acc5_total = 0.
     loader_val.reset()

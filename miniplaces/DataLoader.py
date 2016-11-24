@@ -39,8 +39,8 @@ class DataLoaderH5(object):
                 offset_h = np.random.random_integers(0, self.load_size-self.fine_size)
                 offset_w = np.random.random_integers(0, self.load_size-self.fine_size)
             else:
-                offset_h = (self.load_size-self.fine_size)/2
-                offset_w = (self.load_size-self.fine_size)/2
+                offset_h = (self.load_size-self.fine_size)//2 #(orm: use int division python3)
+                offset_w = (self.load_size-self.fine_size)//2 #(orm: use int division python3)
 
             images_batch[i, ...] = image[offset_h:offset_h+self.fine_size, offset_w:offset_w+self.fine_size, :]
             labels_batch[i, ...] = self.lab_set[self._idx]
@@ -102,8 +102,8 @@ class DataLoaderDisk(object):
                 offset_h = np.random.random_integers(0, self.load_size-self.fine_size)
                 offset_w = np.random.random_integers(0, self.load_size-self.fine_size)
             else:
-                offset_h = (self.load_size-self.fine_size)/2
-                offset_w = (self.load_size-self.fine_size)/2
+                offset_h = (self.load_size-self.fine_size)//2 #(orm: use int division python3)
+                offset_w = (self.load_size-self.fine_size)//2 #(orm: use int division python3)
 
             images_batch[i, ...] =  image[offset_h:offset_h+self.fine_size, offset_w:offset_w+self.fine_size, :]
             labels_batch[i, ...] = self.list_lab[self._idx]
