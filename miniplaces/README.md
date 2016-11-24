@@ -1,3 +1,4 @@
+## CLONE. miniplaces code works with python3
 ## Sample code for miniplaces challenge
 
 To get started:
